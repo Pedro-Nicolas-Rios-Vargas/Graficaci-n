@@ -10,17 +10,18 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import graficos.cartesiano.Algoritmico.FigurasCartesianasAlgoritmos;
 import graficos.cartesiano.MapaCartesiano;
 
 public class PanelBase extends JPanel{
 
-    private int WIDTH;
-    private int HEIGHT;
+    private int panelWidth;
+    private int panelHeight;
 
     protected MapaCartesiano mapa;
 
     public PanelBase(){
-        mapa = new MapaCartesiano();
+        mapa = new FigurasCartesianasAlgoritmos();
         actualizarTamanhos();
     }
 
@@ -30,7 +31,7 @@ public class PanelBase extends JPanel{
      */
     public void actualizarTamanhos() {
         actualizarDimensiones();
-        mapa.actualizarAxis(WIDTH,HEIGHT);
+        mapa.actualizarAxis(panelWidth, panelHeight);
         //setPreferredSize(new Dimension(WIDTH, HEIGHT));
         repaint();
     }
@@ -39,8 +40,8 @@ public class PanelBase extends JPanel{
      * Actualiza las variables que definen el tamaño del panel con respecto al frame principal.
      */
     private void actualizarDimensiones() {
-        WIDTH = FramePractica8.WIDTH - 15;
-        HEIGHT = FramePractica8.HEIGHT - 39;
+        panelWidth = FramePractica8.frameWidth - 15;
+        panelHeight = FramePractica8.frameHeight - 39;
     }
 
     public void paint(Graphics g){

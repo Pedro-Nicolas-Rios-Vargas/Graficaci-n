@@ -11,8 +11,8 @@ import javax.swing.JFrame;
 
 public class FramePractica8 extends JFrame implements ComponentListener{
 
-    public static int WIDTH = 1015;
-    public static int HEIGHT = 639;
+    public static int frameWidth = 1015;
+    public static int frameHeight = 639;
 
     private PanelBase mapaCartesiano;
 
@@ -20,7 +20,7 @@ public class FramePractica8 extends JFrame implements ComponentListener{
         setTitle(title);
         mapaCartesiano = panel;
 
-        setSize(WIDTH,HEIGHT);
+        setSize(frameWidth, frameHeight);
         add(mapaCartesiano);
         addComponentListener(this);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -32,8 +32,8 @@ public class FramePractica8 extends JFrame implements ComponentListener{
         int width = this.getWidth();
         int height = this.getHeight();
 
-        this.WIDTH = width;
-        this.HEIGHT = height;
+        this.frameWidth = width;
+        this.frameHeight = height;
         mapaCartesiano.actualizarTamanhos();
         repaint();
     }
