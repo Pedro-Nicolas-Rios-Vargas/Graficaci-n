@@ -63,36 +63,36 @@ public class FigurasCartesianasAlgoritmos extends CartesianoAlgoritmos {
     @Override
     public void lineaEscalar(int x1, int y1, int x2, int y2, Graphics g) {
         x1 = zeroAxisX + x1 * escalarX;
-        y1 = zeroAxisY - y1 * EscalarY;
+        y1 = zeroAxisY - y1 * escalarY;
         x2 = zeroAxisX + x2 * escalarX;
-        y2 = zeroAxisY - y2 * EscalarY;
+        y2 = zeroAxisY - y2 * escalarY;
         dibujarLinea(x1,y1,x2,y2,g);
     }
 
     @Override
     public void lineaEscalar(int x1, int y1, int x2, int y2, Color color, Graphics g) {
         x1 = zeroAxisX + x1 * escalarX;
-        y1 = zeroAxisY - y1 * EscalarY;
+        y1 = zeroAxisY - y1 * escalarY;
         x2 = zeroAxisX + x2 * escalarX;
-        y2 = zeroAxisY - y2 * EscalarY;
+        y2 = zeroAxisY - y2 * escalarY;
         dibujarLinea(x1,y1,x2,y2,color,g);
     }
 
     @Override
     public void lineaEscalar(int x1, int y1, int x2, int y2, int grosor, Graphics g) {
         x1 = zeroAxisX + x1 * escalarX;
-        y1 = zeroAxisY - y1 * EscalarY;
+        y1 = zeroAxisY - y1 * escalarY;
         x2 = zeroAxisX + x2 * escalarX;
-        y2 = zeroAxisY - y2 * EscalarY;
+        y2 = zeroAxisY - y2 * escalarY;
         dibujarLinea(x1,y1,x2,y2,grosor,g);
     }
 
     @Override
     public void lineaEscalar(int x1, int y1, int x2, int y2, Color color, int grosor, Graphics g) {
         x1 = zeroAxisX + x1 * escalarX;
-        y1 = zeroAxisY - y1 * EscalarY;
+        y1 = zeroAxisY - y1 * escalarY;
         x2 = zeroAxisX + x2 * escalarX;
-        y2 = zeroAxisY - y2 * EscalarY;
+        y2 = zeroAxisY - y2 * escalarY;
         dibujarLinea(x1,y1,x2,y2,color,grosor,g);
     }
 
@@ -107,7 +107,7 @@ public class FigurasCartesianasAlgoritmos extends CartesianoAlgoritmos {
     @Override
     public void circuloEscalar(int xC, int yC, int r, Graphics g) {
         xC = zeroAxisX + xC * escalarX;
-        yC = zeroAxisY - yC * EscalarY;
+        yC = zeroAxisY - yC * escalarY;
         r = r * escalarX;
         circuloBresenham(xC,yC,r,g);
     }
@@ -123,7 +123,7 @@ public class FigurasCartesianasAlgoritmos extends CartesianoAlgoritmos {
     @Override
     public void circuloRellenoEscalar(int xC, int yC, int r, Graphics g) {
         xC = zeroAxisX + xC * escalarX;
-        yC = zeroAxisY - yC * EscalarY;
+        yC = zeroAxisY - yC * escalarY;
         r = r * escalarX;
         rellenarCirculo(xC,yC,r,g);
     }
@@ -139,7 +139,7 @@ public class FigurasCartesianasAlgoritmos extends CartesianoAlgoritmos {
     @Override
     public void ruedaEscalar(int xC, int yC, int r, Graphics g) {
         xC = zeroAxisX + xC * escalarX;
-        yC = zeroAxisY - yC * EscalarY;
+        yC = zeroAxisY - yC * escalarY;
         r = r * escalarX;
         circunferenciaRemarcada(xC, yC, r, g);
     }

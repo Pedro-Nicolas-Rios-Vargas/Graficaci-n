@@ -15,6 +15,7 @@ import graficos.cartesiano.MapaCartesiano;
  */
 public class CartesianoAlgoritmos extends MapaCartesiano {
 
+
     /**
      * Se encarga de ajustar las coordenadas contenidas en los arreglos x[] e y[]
      * para dibujar lineas a escala de un plano cartesiano.
@@ -52,7 +53,7 @@ public class CartesianoAlgoritmos extends MapaCartesiano {
 
         for(int i = 0; i <= x.length-1;i++){
             x1[i] = zeroAxisX + x1[i] * escalarX;
-            y1[i] = zeroAxisY - y1[i] * EscalarY;
+            y1[i] = zeroAxisY - y1[i] * escalarY;
         }
         return new int[][]{x1, y1};
     }

@@ -25,7 +25,7 @@ public abstract class MapaCartesiano extends GraficosCartesianos{
     protected int zeroAxisY;
 
     protected int escalarX;
-    protected int EscalarY;
+    protected int escalarY;
 
 
     /**
@@ -41,10 +41,10 @@ public abstract class MapaCartesiano extends GraficosCartesianos{
 
 
         for(int x = 0; x<= width; x+= escalarX){
-            dibujarLinea(x, zeroAxisY - EscalarY /2,x, zeroAxisY + EscalarY /2,g);
+            dibujarLinea(x, zeroAxisY - escalarY /2,x, zeroAxisY + escalarY /2,g);
         }
 
-        for(int y = 0; y<= height; y+= EscalarY){
+        for(int y = 0; y<= height; y+= escalarY){
             dibujarLinea(zeroAxisX - escalarX /2, y, zeroAxisX + escalarX /2, y,g);
         }
 
@@ -63,11 +63,11 @@ public abstract class MapaCartesiano extends GraficosCartesianos{
 
         escalarX = Math.round(10 * (this.width * 0.001f));
         if(escalarX <=1){
-            escalarX++;
+            escalarX = 2;
         }
-        EscalarY = Math.round(10 * (this.height * 0.0016666f));
-        if(EscalarY <=2){
-            EscalarY +=2;
+        escalarY = Math.round(10 * (this.height * 0.0016666f));
+        if(escalarY <=2){
+            escalarY = 2;
         }
     }
 
