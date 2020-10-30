@@ -9,6 +9,12 @@ import java.awt.event.ComponentListener;
 import java.awt.event.ComponentEvent;
 import javax.swing.JFrame;
 
+/**
+ * La clase <code>FramePractica8</code> es el marco base para la ejecucion y dibujo de cualquier
+ * mapa cartesiano y elementos.
+ *
+ * @author Pedro Nicolas Rios Vargas
+ */
 public class FramePractica8 extends JFrame implements ComponentListener{
 
     public static int frameWidth = 1015;

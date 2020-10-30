@@ -12,8 +12,24 @@ import practicas.pract8.PanelBase;
 
 public class Parte2 extends PanelBase{
 
+    //private final int[] X = {2,0,2,4,6,4};
+    //private final int[] Y = {0,3,6,6,3,0};
     private final int[] X = {3,1,3,6,8,6};
     private final int[] Y = {1,4,7,7,4,1};
+
+    /**
+     * Unico constructor de la clase PanelBase el cual solicita un valor booleano para
+     * elegir la metodologia a utilzar para realizar los dibujos graficos.
+     * <br><br>
+     * Si es <b>true</b> se utilizara el metodo de vectores, de lo contrario
+     * si es <b>false</b> se utilizara el metodo de algoritmos.
+     *
+     * @param metodo Valor booleano que permite seleccionar que tipo de metodo utilizar:
+     *               si <b>true</b> vectorial de lo contrario si <b>false</b> algoritmos.
+     */
+    public Parte2(boolean metodo) {
+        super(metodo);
+    }
 
     /**
      * Metodo que se encarga de dibujar los 4 tipos de recortes en una figura.

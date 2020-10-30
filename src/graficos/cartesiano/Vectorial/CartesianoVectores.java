@@ -1,7 +1,7 @@
 /*
 Alumno: Pedro Nicolas Rios Vargas
 Actividad: Practica 10
-Fecha: 25/Octubre/2020
+Fecha: 30/Octubre/2020
  */
 package graficos.cartesiano.Vectorial;
 
@@ -244,9 +244,9 @@ public class CartesianoVectores extends MapaCartesiano {
      */
     public double[][] s(double xf, double yf, double sx, double sy) {
         return new double[][]{
-                {sx, 0,xf*(1-sx)},  //xf*(1-sx)
+                {sx, 0,   xf*(1-sx)},  //xf*(1-sx)
                 { 0,sy,(-yf)*(1-sy)},  //yf*(1-sy)
-                { 0, 0,        1}
+                { 0, 0,           1}
         };
     }
 
@@ -326,8 +326,123 @@ public class CartesianoVectores extends MapaCartesiano {
     }
 
 
+    /**
+     * Metodo que regresa la matriz de reflexion de un objeto con respecto al eje de las x.
+     * @return  Retorna la matriz de reflexion con respecto al eje de las x.
+     */
+    public double[][] refX() {
+        return new double[][]{
+                {1, 0,0},
+                {0, 1,0},
+                {0, 0,1}
+        };
+    }
+
+    /**
+     * Metodo que regresa la matriz de reflexion de un objeto con respecto al eje de las y.
+     * @return  Retorna la matriz de reflexion con respecto al eje de las y.
+     */
+    public double[][] refY() {
+        return new double[][]{
+                {-1, 0,0},
+                { 0,-1,0},
+                { 0, 0,1}
+        };
+    }
+
+    /**
+     * Metodo que regresa la matriz de reflexion de un objeto con respecto de un eje perpendicular
+     * al plano xy y que pasa a traves del origen de las coordenadas.
+     * @return  Regresa la matriz de reflexion con respecto un eje perpendicular al plano xy.
+     */
+    public double[][] refOrigen() {
+        return new double[][]{
+                {-1, 0,0},
+                { 0, 1,0},
+                { 0, 0,1}
+        };
+    }
+
+    /**
+     * Metodo que regresa la matriz de reflexion de un objeto con respecto de la linea y = x.
+     * @return  Regresa la matriz de reflexion con respecto a la linea y = x.
+     */
+    public double[][] refYigualX() {
+        return new double[][]{
+                {0,-1,0},
+                {1, 0,0},
+                {0, 0,1}
+        };
+    }
+
+    /**
+     * Metodo que regresa la matriz de reflexion de un objeto con respecto de la linea y = -x.
+     * @return  Regresa la matriz de reflexion con respecto de la linea y = -x.
+     */
+    public double[][] refYigualMenosX() {
+        return new double[][]{
+                { 0, 1,0},
+                {-1, 0,0},
+                { 0, 0,1}
+        };
+    }
 
 
+    /**
+     * Metodo que regresa la matriz de recorte (o inclinacion) de la direccion de x en relacion
+     * con el eje de x.
+     * @param shX   Punto de recorte en x.
+     * @return  Regresa la matriz de recorte en direccion del punto shX.
+     */
+    public double[][] cX(double shX) {
+        return new double[][]{
+                {1,-shX,0},
+                {0, -1 ,0},
+                {0, 0 ,1}
+        };
+    }
 
+    /**
+     * Metodo que regresa la matriz de recorte (o inclinacion) de la direccion de x en relacion con
+     * otras lineas de referencia.
+     * @param yRef  Punto de referencia y.
+     * @param shX   Punto de recorte en x.
+     * @return  Regresa la matriz de recorte de la direccion de x en relacion con un punto en la linea y.
+     */
+    public double[][] cXLinea(int yRef, double shX) {
+        return new double[][]{
+                {1,-shX,-shX*yRef},
+                {0, -1 ,    0    },
+                {0, 0 ,    1    }
+        };
+    }
 
+    /**
+     * Metodo que regresa la matriz de recorte (o inclinacion) de la direccion de x en relacion con el
+     * eje y.
+     * @param shY   Punto de recorte en y.
+     * @return  Regresa la matriz de recorte de la direccion de x en relacion con el eje y.
+     */
+    public double[][] cY(double shY) {
+        return new double[][]{
+                { 1 ,0,0},
+                {shY,-1,0},
+                { 0 ,0,1}
+        };
+    }
+
+    /**
+     * Metodo que regresa la matriz de recorte (o inclinacion) de la direccion de y en relacion con
+     * la linea x = xref.
+     * @param xRef  Punto de referencia x.
+     * @param shY   Punto de recorte en y.
+     * @return  Regresa la matriz de recorte de la direccion de y en relacion con un punto en la linea x.
+     */
+    public double[][] cYLinea(int xRef, double shY) {
+        return new double[][]{
+                {  1 , 0,     0  },
+                { shY,-1,-shY*xRef},
+                {  0 , 0,    1   }
+        };
+    }
 }

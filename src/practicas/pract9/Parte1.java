@@ -12,8 +12,24 @@ import practicas.pract8.PanelBase;
 
 public class Parte1 extends PanelBase{
 
+    //private final int[] X = {1,3,5};
+    //private final int[] Y = {1,6,1};
     private final int[] X = {2,3,1,1,12,12,5};
     private final int[] Y = {1,2,2,8,8,2,2};
+
+    /**
+     * Unico constructor de la clase PanelBase el cual solicita un valor booleano para
+     * elegir la metodologia a utilzar para realizar los dibujos graficos.
+     * <br><br>
+     * Si es <b>true</b> se utilizara el metodo de vectores, de lo contrario
+     * si es <b>false</b> se utilizara el metodo de algoritmos.
+     *
+     * @param metodo Valor booleano que permite seleccionar que tipo de metodo utilizar:
+     *               si <b>true</b> vectorial de lo contrario si <b>false</b> algoritmos.
+     */
+    public Parte1(boolean metodo) {
+        super(metodo);
+    }
 
     /**
      * Metodo que se encarga de dibujar los 5 tipos de reflexiones en un plano.
@@ -27,11 +43,11 @@ public class Parte1 extends PanelBase{
         g.setColor(Color.BLUE);
         mapa.reflejarPoligonoSobreY(X, Y,g);   //REFLEXION SOBRE EJE Y
         g.setColor(Color.GREEN);
-        mapa.reflejarPlanosOpuestos(X, Y,g);   //REFLEXION DE PLANOS OPUESTOS
+        mapa.reflejarPoligonoSobreOrigen(X, Y,g);   //REFLEXION DE PLANOS OPUESTOS
         g.setColor(Color.MAGENTA);
-        mapa.reflejarPoligonoXSobreY(X, Y,g);  //REFLEXION ENTRE EJES
+        mapa.reflejarPoligonoYigualX(X, Y,g);  //REFLEXION ENTRE EJES
         g.setColor(Color.ORANGE);
-        mapa.reflejarPoligonoEntrePlanosOpuestos(X, Y,g);  //REFLEXION DE POLIGONOS ENTRE PLANOS
+        mapa.reflejarPoligonoYigualMenosX(X, Y,g);  //REFLEXION DE POLIGONOS ENTRE PLANOS
     }
 
     @Override

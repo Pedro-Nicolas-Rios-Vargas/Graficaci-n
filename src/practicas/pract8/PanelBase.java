@@ -1,27 +1,48 @@
 /*
 Alumno: Pedro Nicolas Rios Vargas
-Actividad: Practica 8
-Fecha: 12/Octubre/2020
+Actividad: Practica 10
+Fecha: 30/Octubre/2020
  */
 
 package practicas.pract8;
 
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
+import java.awt.Panel;
 
 import graficos.cartesiano.Algoritmico.FigurasCartesianasAlgoritmos;
+import graficos.cartesiano.Vectorial.FigurasCartesianasVectores;
+
 import graficos.cartesiano.MapaCartesiano;
 
-public class PanelBase extends JPanel{
+/**
+ * La clase <code>PanelBase</code> es la clase padre de todos los paneles de actividades
+ * a efectuar en base a mapa cartesianos.
+ *
+ * @author Pedro Nicolas Rios Vargas
+ */
+public class PanelBase extends Panel {
 
     private int panelWidth;
     private int panelHeight;
 
     protected MapaCartesiano mapa;
 
-    public PanelBase(){
-        mapa = new FigurasCartesianasAlgoritmos();
+    /**
+     * Unico constructor de la clase PanelBase el cual solicita un valor booleano para
+     * elegir la metodologia a utilzar para realizar los dibujos graficos.
+     * <br><br>
+     * Si es <b>true</b> se utilizara el metodo de vectores, de lo contrario
+     * si es <b>false</b> se utilizara el metodo de algoritmos.
+     * @param metodo    Valor booleano que permite seleccionar que tipo de metodo utilizar:
+     *                  si <b>true</b> vectorial de lo contrario si <b>false</b> algoritmos.
+     */
+    public PanelBase(boolean metodo){
+        if(metodo) {
+            mapa = new FigurasCartesianasVectores();
+        }else{
+            mapa = new FigurasCartesianasAlgoritmos();
+        }
         actualizarTamanhos();
     }
 
@@ -47,8 +68,5 @@ public class PanelBase extends JPanel{
     public void paint(Graphics g){
         super.paint(g);
         mapa.mapaCartesiano(g);
-
-
     }
-
 }

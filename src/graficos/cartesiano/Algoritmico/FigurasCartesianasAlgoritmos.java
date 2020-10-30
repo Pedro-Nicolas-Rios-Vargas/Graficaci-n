@@ -334,18 +334,18 @@ public class FigurasCartesianasAlgoritmos extends CartesianoAlgoritmos {
     }
 
     @Override
-    public void reflejarPlanosOpuestos(int[] x, int[] y, Graphics g) {
-        poligonoRotado(x,y,270,g);
+    public void reflejarPoligonoSobreOrigen(int[] x, int[] y, Graphics g) {
+        poligonoRotado(y,x,270,g);
     }
 
     @Override
-    public void reflejarPoligonoXSobreY(int[] x, int[] y, Graphics g) {
+    public void reflejarPoligonoYigualX(int[] x, int[] y, Graphics g) {
         poligonoEscalar(y,x,g);
     }
 
     @Override
-    public void reflejarPoligonoEntrePlanosOpuestos(int[] x, int[] y, Graphics g) {
-        poligonoRotado(y,x,270,g);
+    public void reflejarPoligonoYigualMenosX(int[] x, int[] y, Graphics g) {
+        poligonoRotado(x,y,270,g);
     }
 
     @Override

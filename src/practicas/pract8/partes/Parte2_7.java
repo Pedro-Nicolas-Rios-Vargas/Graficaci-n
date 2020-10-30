@@ -16,6 +16,20 @@ public class Parte2_7 extends PanelBase {
     private final int[] X = {-8,8,8,-8};
     private final int[] Y = {8,8,-8,-8};
 
+    /**
+     * Unico constructor de la clase PanelBase el cual solicita un valor booleano para
+     * elegir la metodologia a utilzar para realizar los dibujos graficos.
+     * <br><br>
+     * Si es <b>true</b> se utilizara el metodo de vectores, de lo contrario
+     * si es <b>false</b> se utilizara el metodo de algoritmos.
+     *
+     * @param metodo Valor booleano que permite seleccionar que tipo de metodo utilizar:
+     *               si <b>true</b> vectorial de lo contrario si <b>false</b> algoritmos.
+     */
+    public Parte2_7(boolean metodo) {
+        super(metodo);
+    }
+
     @Override
     public void paint(Graphics g) {
         super.paint(g);

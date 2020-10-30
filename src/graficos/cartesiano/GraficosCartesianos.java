@@ -247,6 +247,15 @@ public abstract class GraficosCartesianos{
     public void poligonoEscalar(int[] x, int[] y, float sX, float sY, Graphics g) {}
 
     /**
+     * Metodo que permite dibujar la escala inversa de las coordenadas de un poligono dado.
+     * @param x Conjunto de coordenadas x del poligono original.
+     * @param y Conjunto de coordenadas y del poligono original.
+     * @param sX    Escala de las coordenadas x.
+     * @param sY    Escala de las coordenadas y.
+     * @param g Objeto grafico del invocador.
+     */
+    public void poligonoEscalarInv(int[] x, int[] y, float sX, float sY, Graphics g) {}
+    /**
      * Metodo que permite dibujar un poligono transladado x o y unidades en los ejes del mapa.
      * @param x Conjunto de coordenadas x del poligono original.
      * @param y Conjunto de coordenadas y del poligono original.
@@ -257,17 +266,39 @@ public abstract class GraficosCartesianos{
     public void poligonoEscalar(int[] x, int[] y, int tX, int tY, Graphics g) {}
 
     /**
+     * Metodo que permite dibujar un poligono transladado x o y unidades a la inversa en los
+     * ejes del mapa.
+     * @param x Conjunto de coordenadas x del poligono original.
+     * @param y Conjunto de coordenadas y del poligono original.
+     * @param tX    Unidades de translacion en el eje x.
+     * @param tY    Unidades de translacion en el eje y.
+     * @param g Objeto grafico del invocador.
+     */
+    public void poligonoEscalarInv(int[] x, int[] y, int tX, int tY, Graphics g) {}
+    /**
      * Metodo que permite dibujar un poligono transladado y escalado en base a un poligono original.
      * @param x Conjunto de coordenadas x del poligono original.
      * @param y Conjunto de coordenadas y del poligono original.
-     * @param sX    Escala de la coordenadas x.
-     * @param sY    Escala de la coordenada y.
+     * @param sX    Escala de las coordenadas x.
+     * @param sY    Escala de las coordenada y.
      * @param tX    Unidades de translacion en el eje x.
      * @param tY    Unidades de translacion en el eje y.
      * @param g Objeto grafico del invocador.
      */
     public void poligonoEscalar(int[] x, int[] y, float sX, float sY,int tX, int tY, Graphics g) {}
 
+    /**
+     * Metodo que permite dibujar un poligono escalado y trasladado a la inversa en base a un poligono
+     * original.
+     * @param x Conjunto de coordenadas x del poligono original.
+     * @param y Conjunto de coordenadas y del poligono original.
+     * @param sX    Escala de las coordenadas x.
+     * @param sY    Escala de las coordenadas y.
+     * @param tX    Unidades de traslacion en el eje x.
+     * @param tY    Unidades de traslacion en el eje y.
+     * @param g Objeto grafico del invocador.
+     */
+    public void poligonoEscalarInv(int[] x, int[] y, float sX, float sY, int tX, int tY, Graphics g) {}
     /**
      * Metodo que permite dibujar un poligono relleno en base a lineas continuas unidas por sus vertices
      * las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
@@ -293,6 +324,19 @@ public abstract class GraficosCartesianos{
     public void rellenarPoligonoEscalar(int[] x, int[] y, float sX, float sY, Color relleno, Color borde, Graphics g) {}
 
     /**
+     * Metodo que permite dibujar un poligono relleno invertido en base a lineas continuas unidas por
+     * sus vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
+     * @param x Conjunto de coordenadas x para los vertices.
+     * @param y Conjunto de coordenadas y para los vertices.
+     * @param sX    Escala de las coordenadas x.
+     * @param sY    Escala de las coordenadas y.
+     * @param relleno   Color del relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarPoligonoEscalarInv(int[] x, int[] y, float sX, float sY, Color relleno, Color borde, Graphics g) {}
+
+    /**
      * Metodo que permite dibujar un poligono relleno en base a lineas continuas unidas por sus vertices
      * las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
      * @param x Conjunto de coordenadas x para los vertices.
@@ -304,6 +348,19 @@ public abstract class GraficosCartesianos{
      * @param g Objeto grafico del invocador.
      */
     public void rellenarPoligonoEscalar(int[] x, int[] y, int tX, int tY, Color relleno, Color borde, Graphics g) {}
+
+    /**
+     * Metodo que permite dibujar un poligono relleno invertido en base a lineas continuas unidas
+     * por sus vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
+     * @param x Conjunto de coordenadas x para los vertices.
+     * @param y Conjunto de coordenadas y para los vertices.
+     * @param tX    Unidades de translacion en el eje x.
+     * @param tY    Unidades de translacion en el eje y.
+     * @param relleno   Color del relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarPoligonoEscalarInv(int[] x, int[] y, int tX, int tY, Color relleno, Color borde, Graphics g) {}
 
     /**
      * Metodo que permite dibujar un poligono relleno en base a lineas continuas unidas por sus vertices
@@ -320,12 +377,28 @@ public abstract class GraficosCartesianos{
      */
     public void rellenarPoligonoEscalar(int[] x, int[] y, float sX, float sY, int tX, int tY, Color relleno, Color borde, Graphics g) {}
 
+    /**
+     * Metodo que permite dibujar un poligono relleno inverso en base a lineas continuas unidas
+     * por sus vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
+     * @param x Conjunto de coordenadas x para los vertices.
+     * @param y Conjunto de coordenadas y para los vertices.
+     * @param sX    Escala de la coordenadas x.
+     * @param sY    Escala de la coordenada y.
+     * @param tX    Unidades de translacion en el eje x.
+     * @param tY    Unidades de translacion en el eje y.
+     * @param relleno   Color del relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarPoligonoEscalarInv(int[] x, int[] y, float sX, float sY, int tX, int tY, Color relleno, Color borde, Graphics g) {}
+
+
 //▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬§ METODOS PARA ROTAR POLIGONOS §▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
     /**
      * Metodo que permite dibujar la imagen de un poligono sin rotar y rotarlo en un angulo especifico
-     * en base a lineas continuas unidas por sus vertices las cuales ajustan su tamaño de acuerdo al
-     * tamaño de la ventana.
+     * en sentido de las manesillas del reloj y enbase a lineas continuas unidas por sus
+     * vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
      * @param x Conjunto de coordenadas x del poligono original.
      * @param y Conjunto de coordenadas y del poligono original.
      * @param grados    Grados de inclinacion del poligono.
@@ -334,9 +407,21 @@ public abstract class GraficosCartesianos{
     public void poligonoRotado(int[] x, int[] y, int grados, Graphics g) {}
 
     /**
+     * Metodo que permite dibujar la imagen de un poligono sin rotar y rotarlo en un angulo especifico
+     * en sentido contrario a las manesillas del reloj y en base a lineas continuas unidas por sus
+     * vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
+     * @param x Conjunto de coordenadas x del poligono original.
+     * @param y Conjunto de coordenadas y del poligono original.
+     * @param grados    Grados de inclinacion del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void poligonoRotadoInv(int[] x, int[] y, int grados, Graphics g) {}
+
+    /**
      * Metodo que permite dibujar la imagen de un poligono la cual se va a transladar en "x" y "y" y
-     * rotarlo en un angulo especifico en base a lineas continuas unidas por sus vertices las cuales
-     * ajustan su tamaño de acuerdo al tamaño de la ventana.
+     * rotarlo en un angulo especifico en sentido de las manesillas del reloj y en base a
+     * lineas continuas unidas por sus vertices las cuales ajustan su tamaño de acuerdo al tamaño
+     * de la ventana.
      * @param x Conjunto de coordenadas x del poligono original.
      * @param y Conjunto de coordenadas y del poligono original.
      * @param grados    Grados de inclinacion del poligono.
@@ -347,9 +432,23 @@ public abstract class GraficosCartesianos{
     public void poligonoRotado(int[] x, int[] y, int grados, int tX, int tY, Graphics g) {}
 
     /**
+     * Metodo que permite dibujar la imagen de un poligono la cual se va a transladar de forma inversa
+     * en "x" y "y" y rotarlo en un angulo especifico en sentido contrario a las manesillas del reloj
+     * y en base a lineas continuas unidas por sus vertices las cuales ajustan su tamaño de acuerdo
+     * al tamaño de la ventana.
+     * @param x Conjunto de coordenadas x del poligono original.
+     * @param y Conjunto de coordenadas y del poligono original.
+     * @param grados    Grados de inclinacion del poligono.
+     * @param tX    Unidades de translacion en el eje x.
+     * @param tY    Unidades de translacion en el eje y.
+     * @param g Objeto grafico del invocador.
+     */
+    public void poligonoRotadoInv(int[] x, int[] y, int grados, int tX, int tY, Graphics g) {}
+
+    /**
      * Metodo que permite dibujar la imagen de un poligono la cual se va a escalar y rotar en un angulo
-     * especifico en base a lineas continuas unidas por sus vertices las cuales ajustan su tamaño de
-     * acuerdo al tamaño de la ventana.
+     * especifico en sentido de las manesillas del reloj y en base a lineas continuas unidas por
+     * sus vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
      * @param x Conjunto de coordenadas x del poligono original.
      * @param y Conjunto de coordenadas y del poligono original.
      * @param grados    Grados de inclinacion del poligono.
@@ -360,9 +459,22 @@ public abstract class GraficosCartesianos{
     public void poligonoRotado(int[] x, int[] y, int grados, float sX, float sY, Graphics g) {}
 
     /**
-     * Metodo que permite dibujar una iamgen de un poligono la cual se va a escalar, rotar y transladar
-     * en base a lineas continuas unuidas por sus vertices las cuales ajustan su tamaño de acuerdo al
-     * tamaño de la ventana.
+     * Metodo que permite dibujar la imagen de un poligono la cual se va a escalar y rotar en un angulo
+     * especifico en sentido contrario de las manesillas del reloj y en base a lineas continuas unidas
+     * por sus vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
+     * @param x Conjunto de coordenadas x del poligono original.
+     * @param y Conjunto de coordenadas y del poligono original.
+     * @param grados    Grados de inclinacion del poligono.
+     * @param sX    Escala de las coordenadas x.
+     * @param sY    Escala de las coordenadas y.
+     * @param g Objeto grafico del invocador.
+     */
+    public void poligonoRotadoInv(int[] x, int[] y, int grados, float sX, float sY, Graphics g) {}
+
+    /**
+     * Metodo que permite dibujar una imagen de un poligono la cual se va a escalar, rotar en sentido
+     * de las manesillas del reloj y transladar en base a lineas continuas unuidas por sus
+     * vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
      * @param x Conjunto de coordenadas x del poligono original.
      * @param y Conjunto de coordenadas y del poligono original.
      * @param grados    Grados de inclinacion del poligono
@@ -375,8 +487,23 @@ public abstract class GraficosCartesianos{
     public void poligonoRotado(int[] x, int[] y, int grados, int tX, int tY, float sX, float sY, Graphics g) {}
 
     /**
-     * Metodo que permite dibujar la imagen de un poligono sin rotar y rotarlo en un angulo especifico,
-     * relleno en base a lineas continuas unidas por sus vertices
+     * Metodo que permite dibujar una imagen de un poligono la cual se va a escalar, rotar en sentido
+     * contrario a las manesillas del reloj y transladar en base a lineas continuas unuidas por sus
+     * vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
+     * @param x Conjunto de coordenadas x del poligono original.
+     * @param y Conjunto de coordenadas y del poligono original.
+     * @param grados    Grados de inclinacion del poligono
+     * @param tX    Unidades de translacion en el eje x.
+     * @param tY    Unidades de translacion en el eje y.
+     * @param sX    Escala de las coordenadas x.
+     * @param sY    Escala de las coordenadas y.
+     * @param g Objeto grafico del invocador.
+     */
+    public void poligonoRotadoInv(int[] x, int[] y, int grados, int tX, int tY, float sX, float sY, Graphics g) {}
+
+    /**
+     * Metodo que permite dibujar la imagen de un poligono sin rotar y rotarlo en un angulo especifico
+     * en sentido de las manesillas del reloj, relleno en base a lineas continuas unidas por sus vertices
      * las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
      * @param x Conjunto de coordenadas x para los vertices.
      * @param y Conjunto de coordenadas y para los vertices.
@@ -388,9 +515,22 @@ public abstract class GraficosCartesianos{
     public void rellenarPoligonoRotado(int[] x, int[] y, int grados, Color relleno, Color borde, Graphics g) {}
 
     /**
-     * Metodo que permite dibujar la imagen de un poligono sin rotar y rotarlo en un angulo especifico,
-     * relleno en base a lineas continuas unidas por sus vertices
-     * las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
+     * Metodo que permite dibujar la imagen de un poligono sin rotar y rotarlo en un angulo especifico
+     * en sentido contrario a las manesillas del reloj, relleno en base a lineas continuas unidas por
+     * sus vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
+     * @param x Conjunto de coordenadas x para los vertices.
+     * @param y Conjunto de coordenadas y para los vertices.
+     * @param grados    Grados de inclinacion del poligono.
+     * @param relleno   Color del relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarPoligonoRotadoInv(int[] x, int[] y, int grados, Color relleno, Color borde, Graphics g) {}
+
+    /**
+     * Metodo que permite dibujar la imagen de un poligono sin rotar y rotarlo en un angulo especifico
+     * en sentido de las manesillas del reloj, relleno en base a lineas continuas unidas por
+     * sus vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
      * @param x Conjunto de coordenadas x para los vertices.
      * @param y Conjunto de coordenadas y para los vertices.
      * @param grados    Grados de inclinacion del poligono.
@@ -403,8 +543,23 @@ public abstract class GraficosCartesianos{
     public void rellenarPoligonoRotado(int[] x, int[] y, int grados, int tX, int tY, Color relleno, Color borde, Graphics g) {}
 
     /**
-     * Metodo que permite dibujar la imagen de un poligono sin rotar y rotarlo en un angulo especifico,
-     * relleno en base a lineas continuas unidas por sus vertices
+     * Metodo que permite dibujar la imagen de un poligono sin rotar y rotarlo en un angulo especifico
+     * en sentido contrario de las manesillas del reloj, relleno en base a lineas continuas unidas por
+     * sus vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
+     * @param x Conjunto de coordenadas x para los vertices.
+     * @param y Conjunto de coordenadas y para los vertices.
+     * @param grados    Grados de inclinacion del poligono.
+     * @param tX    Unidades de translacion en el eje x.
+     * @param tY    Unidades de translacion en el eje y.
+     * @param relleno   Color del relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarPoligonoRotadoInv(int[] x, int[] y, int grados, int tX, int tY, Color relleno, Color borde, Graphics g) {}
+
+    /**
+     * Metodo que permite dibujar la imagen de un poligono sin rotar y rotarlo en un angulo especifico
+     * en sentido de las manesillas del reloj, relleno en base a lineas continuas unidas por sus vertices
      * las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
      * @param x Conjunto de coordenadas x para los vertices.
      * @param y Conjunto de coordenadas y para los vertices.
@@ -418,9 +573,23 @@ public abstract class GraficosCartesianos{
     public void rellenarPoligonoRotado(int[] x, int[] y, int grados, float sX, float sY, Color relleno, Color borde, Graphics g) {}
 
     /**
-     * Metodo que permite dibujar una iamgen de un poligono la cual se va a escalar, rotar y transladar
-     * en base a lineas continuas unuidas por sus vertices las cuales ajustan su tamaño de acuerdo al
-     * tamaño de la ventana.
+     * Metodo que permite dibujar la imagen de un poligono sin rotar y rotarlo en un angulo especifico
+     * en sentido contrario a las manesillas del reloj, relleno en base a lineas continuas unidas por
+     * sus vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
+     * @param x Conjunto de coordenadas x para los vertices.
+     * @param y Conjunto de coordenadas y para los vertices.
+     * @param grados    Grados de inclinacion del poligono.
+     * @param sX    Escala de las coordenadas x.
+     * @param sY    Escala de las coordenadas y.
+     * @param relleno   Color del relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarPoligonoRotadoInv(int[] x, int[] y, int grados, float sX, float sY, Color relleno, Color borde, Graphics g) {}
+    /**
+     * Metodo que permite dibujar una iamgen de un poligono la cual se va a escalar, rotar en sentido
+     * de las manesillas del reloj y transladar en base a lineas continuas unuidas por sus
+     * vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
      * @param x Conjunto de coordenadas x del poligono original.
      * @param y Conjunto de coordenadas y del poligono original.
      * @param grados    Grados de inclinacion del poligono
@@ -433,6 +602,23 @@ public abstract class GraficosCartesianos{
      * @param g Objeto grafico del invocador.
      */
     public void rellenarPoligonoRotado(int[] x, int[] y, int grados, int tX, int tY, float sX, float sY, Color relleno, Color borde, Graphics g) {}
+
+    /**
+     * Metodo que permite dibujar una iamgen de un poligono la cual se va a escalar, rotar en sentido
+     * contrario de las manesillas del reloj y transladar en base a lineas continuas unuidas por sus
+     * vertices las cuales ajustan su tamaño de acuerdo al tamaño de la ventana.
+     * @param x Conjunto de coordenadas x del poligono original.
+     * @param y Conjunto de coordenadas y del poligono original.
+     * @param grados    Grados de inclinacion del poligono
+     * @param tX    Unidades de translacion en el eje x.
+     * @param tY    Unidades de translacion en el eje y.
+     * @param sX    Escala de las coordenadas x.
+     * @param sY     Escala de las coordenadas y.
+     * @param relleno Color del interior del poligono.
+     * @param borde Color del borde del poligono
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarPoligonoRotadoInv(int[] x, int[] y, int grados, int tX, int tY, float sX, float sY, Color relleno, Color borde, Graphics g) {}
 
 //▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬§ METODOS PARA REFLEJAR POLIGONOS §▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
@@ -458,7 +644,7 @@ public abstract class GraficosCartesianos{
      * @param y Conjunto de coordenadas y.
      * @param g Objeto grafico del invocador.
      */
-    public void reflejarPlanosOpuestos(int[] x, int[] y, Graphics g) {}
+    public void reflejarPoligonoSobreOrigen(int[] x, int[] y, Graphics g) {}
 
     /**
      * Dibuja el reflejo de los ejes del poligono.
@@ -466,7 +652,7 @@ public abstract class GraficosCartesianos{
      * @param y Conjunto de coordenadas y.
      * @param g Objeto grafico del invocador.
      */
-    public void reflejarPoligonoXSobreY(int[] x, int[] y, Graphics g) {}
+    public void reflejarPoligonoYigualX(int[] x, int[] y, Graphics g) {}
 
     /**
      * Dibuja el reflejo del los planos con los ejes reflejados del poligono.
@@ -474,7 +660,7 @@ public abstract class GraficosCartesianos{
      * @param y Conjunto de coordenadas y.
      * @param g Objeto grafico del invocador.
      */
-    public void reflejarPoligonoEntrePlanosOpuestos(int[] x, int[] y, Graphics g) {}
+    public void reflejarPoligonoYigualMenosX(int[] x, int[] y, Graphics g) {}
 
 //▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬§ METODOS PARA RECORTAR POLIGONOS §▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
