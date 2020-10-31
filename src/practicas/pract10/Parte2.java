@@ -29,12 +29,6 @@ public class Parte2 extends PanelBase {
         super(metodo);
     }
 
-    public void retardar(){
-        try{
-            Thread.sleep(500);
-        }catch(Exception e) { e.printStackTrace(); }
-    }
-
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -57,6 +51,6 @@ public class Parte2 extends PanelBase {
         mapa.rellenarPoligonoRotado(X,Y,120,-10,-10,Color.YELLOW,Color.RED,g);    //ROTACION BASADA EN UN PUNTO DE ROTACION
         retardar();
         mapa.rellenarPoligonoRotadoInv(X,Y,45,Color.MAGENTA,Color.CYAN,g);               //ROTACION INVERSA
-
+        retardar();
     }
 }

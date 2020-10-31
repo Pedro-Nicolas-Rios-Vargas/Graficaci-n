@@ -65,6 +65,15 @@ public class PanelBase extends Panel {
         panelHeight = FramePractica8.frameHeight - 39;
     }
 
+    /**
+     * Retarda el hilo de ejecucion del programa en 0.5 segundos.
+     */
+    protected void retardar(){
+        try{
+            Thread.sleep(500);
+        }catch(Exception e) { e.printStackTrace(); }
+    }
+
     public void paint(Graphics g){
         super.paint(g);
         mapa.mapaCartesiano(g);

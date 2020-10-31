@@ -662,6 +662,56 @@ public abstract class GraficosCartesianos{
      */
     public void reflejarPoligonoYigualMenosX(int[] x, int[] y, Graphics g) {}
 
+    /**
+     * Dibuja el reflejo del poligono relleno respecto al eje x.
+     * @param x Conjunto de coordenadas x.
+     * @param y Conjunto de coordenadas y.
+     * @param relleno   Color del relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarReflejoPoligonoSobreX(int[] x, int[] y, Color relleno, Color borde, Graphics g) {}
+
+    /**
+     * Dibuja el reflejo del poligono relleno respecto al eje y.
+     * @param x Conjunto de coordendas x.
+     * @param y Conjunto de coordendas y.
+     * @param relleno   Color del relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarReflejoPoligonoSobreY(int[] x, int[] y, Color relleno, Color borde, Graphics g) {}
+
+    /**
+     * Dibuja el reflejo del poligono relleno en el plano opuesto.
+     * @param x Conjutno de coordenadas x.
+     * @param y Conjunto de coordenadas y.
+     * @param relleno   Color del relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarReflejoPoligonoSobreOrigen(int[] x, int[] y, Color relleno, Color borde, Graphics g) {}
+
+    /**
+     * Dibuja el reflejo del poligono relleno en base a los ejes del poligono.
+     * @param x Conjunto de coordenadas x.
+     * @param y Conjunto de coordendas y.
+     * @param relleno   Color del relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarReflejoPoligonoYigualX(int[] x, int[] y, Color relleno, Color borde, Graphics g) {}
+
+    /**
+     * Dibuja el reflejo del poligono relleno en base a los ejes del plano.
+     * @param x Conjunto de coordendas x.
+     * @param y Conjunto de coordenadas y.
+     * @param relleno   Color del relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarReflejoPoligonoYigualMenosX(int[] x, int[] y, Color relleno, Color borde, Graphics g) {}
+
 //▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬§ METODOS PARA RECORTAR POLIGONOS §▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
     /**
@@ -701,6 +751,56 @@ public abstract class GraficosCartesianos{
      * @param g Objeto grafico del invocador.
      */
     public void recortarPoligonoDeYSobreX(int[] x, int[] y, float shY, int refX, Graphics g) {}
+
+    /**
+     * Metodo que se encarga de recortar la direccion de x en relacion con el eje de x para
+     * dibujar un poligono relleno.
+     * @param x Conjunto de coordendas x.
+     * @param y Conjunto de coordenadas y.
+     * @param shX   Parametro de recorte en relacion con el eje x.
+     * @param relleno   Color del relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarRecortePoligonoDeXSobreX(int[] x, int[] y, float shX, Color relleno, Color borde, Graphics g) {}
+
+    /**
+     * Metodo que se encarga de recortar la direccion de y en relacion con el eje y para dibujar
+     * un poligono relleno.
+     * @param x Conjunto de coordenadas x.
+     * @param y Conjunto de coordenadas y.
+     * @param shX   Parametro de recorte en relacion con el eje x.
+     * @param refY  Punto de referencia en el eje y.
+     * @param relleno   Color de relleno del poligono.
+     * @param borde Color del borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarRecortePoligonoDeXSobreY(int[] x, int[] y, float shX, int refY, Color relleno, Color borde, Graphics g) {}
+
+    /**
+     * Metodo que se encarga de recortar la direccion de y en la relacion con el eje y para
+     * dibujar un poligono relleno.
+     * @param x Conjunto de coordenadas x.
+     * @param y Conjunto de coordenadas y.
+     * @param shY   Parametro de recorte en relacion con eje y.
+     * @param relleno   Color de relleno del poligono.
+     * @param borde Color de borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarRecortePoligonoDeYSobreY(int[] x, int[] y, float shY, Color relleno, Color borde, Graphics g) {}
+
+    /**
+     * Metodo que se encarga de recortar la direccion de y en relacion con el eje x para
+     * dibujar un poligono relleno.
+     * @param x Conjunto de coordenadas x.
+     * @param y Conjunto de coordenadas y.
+     * @param shY   Parametro de recorte en relacion con eje y.
+     * @param refX  Punto de referencia en el eje x.
+     * @param relleno   Color de relleno del poligono.
+     * @param borde Color de borde del poligono.
+     * @param g Objeto grafico del invocador.
+     */
+    public void rellenarRecortePoligonoDeYSobreX(int[] x, int[] y, float shY, int refX, Color relleno, Color borde, Graphics g) {}
 
     /**
      * Metodo que se encarga de transladar el conjunto de coordenadas x o y de una posicion a otra.

@@ -776,6 +776,63 @@ public class FigurasCartesianasVectores extends CartesianoVectores {
         poligonoEscalar(resX,resY,g);
     }
 
+    @Override
+    public void rellenarReflejoPoligonoSobreX(int[] x, int[] y, Color relleno, Color borde, Graphics g) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(refX(),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        rellenarPoligonoEscalar(resX,resY,relleno,borde,g);
+    }
+
+    @Override
+    public void rellenarReflejoPoligonoSobreY(int[] x, int[] y, Color relleno, Color borde, Graphics g) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(refY(),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        rellenarPoligonoEscalar(resX,resY,relleno,borde,g);
+    }
+
+    @Override
+    public void rellenarReflejoPoligonoSobreOrigen(int[] x, int[] y, Color relleno, Color borde, Graphics g) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(refOrigen(),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        rellenarPoligonoEscalar(resX,resY,relleno,borde,g);
+
+    }
+
+    @Override
+    public void rellenarReflejoPoligonoYigualX(int[] x, int[] y, Color relleno, Color borde, Graphics g) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(refYigualX(),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        rellenarPoligonoEscalar(resX,resY,relleno,borde,g);
+
+    }
+
+    @Override
+    public void rellenarReflejoPoligonoYigualMenosX(int[] x, int[] y, Color relleno, Color borde, Graphics g) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(refYigualMenosX(),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        rellenarPoligonoEscalar(resX,resY,relleno,borde,g);
+    }
+
 //▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬§ METODOS PARA RECORTAR POLIGONOS §▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
     @Override
@@ -820,6 +877,50 @@ public class FigurasCartesianasVectores extends CartesianoVectores {
         int[] resY = actualizaPuntos(res,1);
 
         poligonoEscalar(resX,resY,g);
+    }
+
+    @Override
+    public void rellenarRecortePoligonoDeXSobreX(int[] x, int[] y, float shX, Color relleno, Color borde, Graphics g) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(cX(shX),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        rellenarPoligonoEscalar(resX,resY,relleno,borde,g);
+    }
+
+    @Override
+    public void rellenarRecortePoligonoDeXSobreY(int[] x, int[] y, float shX, int refY, Color relleno, Color borde, Graphics g) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(cXLinea(refY,shX),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        rellenarPoligonoEscalar(resX,resY,relleno,borde,g);
+    }
+
+    @Override
+    public void rellenarRecortePoligonoDeYSobreY(int[] x, int[] y, float shY, Color relleno, Color borde, Graphics g) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(cY(shY),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        rellenarPoligonoEscalar(resX,resY,relleno,borde,g);
+    }
+
+    @Override
+    public void rellenarRecortePoligonoDeYSobreX(int[] x, int[] y, float shY, int refX, Color relleno, Color borde, Graphics g) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(cYLinea(refX,shY),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        rellenarPoligonoEscalar(resX,resY,relleno,borde,g);
     }
 
     @Override
