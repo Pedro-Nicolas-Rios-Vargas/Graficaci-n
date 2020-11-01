@@ -86,7 +86,7 @@ public class CartesianoAlgoritmos extends MapaCartesiano {
     }
 
     @Override
-    public int[][] rotar(int[] x, int[] y, int grados){
+    public int[][] rotar(int[] x, int[] y, double grados){
         int[] xR = x.clone();
         int[] yR = y.clone();
 

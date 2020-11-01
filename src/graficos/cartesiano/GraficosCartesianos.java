@@ -815,6 +815,16 @@ public abstract class GraficosCartesianos{
     public int[][] transladar(int[] x, int[] y, int tX, int tY) {return null;}
 
     /**
+     * Metodo que se encarga de transladar el conjunto de coordenadas x o y de una posicion a otra.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordendas y.
+     * @param tX    Unidades de translacion en el eje x.
+     * @param tY    Unidades de translacion en el eje y.
+     * @return  Retorna la matriz de puntos con valores enteros, esto para facilitar el manejo
+     *          fuera de los dibujos por default de las clases FigurasCartesianas.
+     */
+    public int[][] transladarInv(int[] x, int[] y, int tX, int tY) {return null;}
+    /**
      * Metodo que se encarga de escalar el conjunto de coordenadas x o y de un poligono.
      * @param x Arreglo de coordenadas x.
      * @param y Arreglo de coordenadas y.
@@ -827,7 +837,33 @@ public abstract class GraficosCartesianos{
     public int[][] escalar(int[] x, int[] y, float sX, float sY) {return null;}
 
     /**
-     * Metodo que se encarga de rotar el conjunto de coordenadas x o y de un poligono <i>n</i> grados.
+     * Metodo que se encarga de escalar en base a un punto fijo el conjunto de coordendas x o y
+     * de un poligono.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordenadas y.
+     * @param xf    Traslacion en x.
+     * @param yf    Traslacion en y.
+     * @param sX    Escalacion en x.
+     * @param sY    Escalacion en y.
+     * @return  Retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *          fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] escalarPuntoFijo(int[] x, int[] y, double xf, double yf, double sX, double sY) {return null;}
+
+    /**
+     * Metodo que se encarga de escalar a la inversa el conjunto de coordenadas x o y de un
+     * poligono.
+     * @param x Arreglos de coordenadas x.
+     * @param y Arreglos de coordenadas y.
+     * @param sx    Escalacion en x.
+     * @param sy    Escalacion en y.
+     * @return  Retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *          fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] escalarInv(int[] x, int[] y, double sx, double sy) {return null;}
+    /**
+     * Metodo que se encarga de rotar en sentido de las manesillas del reloj el conjunto de
+     * coordenadas x o y de un poligono <i>n</i> grados.
      * @param x Arreglo de coordenadas x.
      * @param y Arreglo de coordenadas y.
      * @param grados    Grados de rotacion del poligono.
@@ -835,5 +871,118 @@ public abstract class GraficosCartesianos{
      *          el arreglo rotado de las coordenadas x mientras que la segunda fila
      *          contiene el arreglo rotado de las coordenadas y.
      */
-    public int[][] rotar(int[] x, int[] y, int grados) {return null;}
+    public int[][] rotar(int[] x, int[] y, double grados) {return null;}
+
+    /**
+     * Metodo que se encarga de rotar en base a un punto fijo el conjunto de coordenadas x o y de
+     * un poligono <i>n</i> grados.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordenadas y.
+     * @param xp    Punto de rotacion en x.
+     * @param yp    Punto de rotacion en y.
+     * @param g Grados a rotar.
+     * @return Retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *         fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] rotarPuntoFijo(int[] x, int[] y, double xp, double yp, double g) {return null;}
+
+    /**
+     * Metodo que se encarga de rotar en sentido contrario a las manesillas del reloj al conjunto
+     * de coordenadas x o y de un poligono <i>n</i> grados.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordenadas y.
+     * @param g Grados a rotar.
+     * @return Retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *         fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] rotarInv(int[] x, int[] y, double g) { return null; }
+
+    /**
+     * Metodo que se encarga de reflejar sobre el eje x las coordenadas de un poligono.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordenadas y.
+     * @return  Retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *          fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] reflejoX(int[] x, int[] y) { return null; }
+
+    /**
+     * Metodo que se encarga de reflejar sobre el eje y las coordenadas de un poligono.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordenadas y.
+     * @return  Retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *          fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] reflejoY(int[] x, int[] y) { return null; }
+
+    /**
+     * Metodo que se encarga de reflejar sobre el origen las coordenadas de un poligono.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordenadas y.
+     * @return  Retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *          fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] reflejoOrigen(int[] x, int[] y) { return null; }
+
+    /**
+     * Metodo que se encarga de reflejar las coordenadas "x" y "y" entre si en el plano.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordenadas y.
+     * @return  Retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *          fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] reflejoYigualX(int[] x, int[] y) { return null; }
+
+    /**
+     * Metodo que se encarga de reflejar las coordenadas "-x" y "y" en el plano.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordendas y.
+     * @return  Retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *          fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] reflejoYigualMenosX(int[] x, int[] y) { return null; }
+
+    /**
+     * Metodo que se encarga de recortar los puntos de una figura en base a un punto en x.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordenadas y.
+     * @param shX   Parametro de recorte en x.
+     * @return  Retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *          fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] recorteDeXsobreX(int[] x, int[] y, float shX) { return null; }
+
+    /**
+     * Metodo que se encarga de recortar los puntos de una figura en base a un punto en x y
+     * con referencia a un punto en y.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordenadas y.
+     * @param shX   Parametro de recorte en x.
+     * @param refY  Punto de referencia en y.
+     * @return  Retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *          fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] recorteDeXsobreY(int[] x, int[] y, float shX, int refY) { return null; }
+
+    /**
+     * Metodo que se encarga de recortar los puntos de una figura en base a un punto en y.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordenadas y.
+     * @param shY   Parametro de recorte y.
+     * @return  Retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *          fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] recorteDeYsobreY(int[] x, int[] y, float shY) { return null; }
+
+    /**
+     * Metodo que se encarga de recortar los puntos de una figura en base a un punto en "y" y
+     * con referencia a un punto en x.
+     * @param x Arreglo de coordenadas x.
+     * @param y Arreglo de coordenadas y.
+     * @param shY   Parametro de recorte y.
+     * @param refX  Punto de referencia en x.
+     * @return  retorna una matriz de puntos con valores enteros, esto para facilitar el manejo
+     *          fuera de los dibujos default de las clases FigurasCartesianas.
+     */
+    public int[][] recorteDeYsobreX(int[] x, int[] y, float shY, int refX) { return null; }
 }

@@ -11,7 +11,7 @@ import java.awt.Graphics;
 import java.awt.Panel;
 
 import graficos.cartesiano.Algoritmico.FigurasCartesianasAlgoritmos;
-import graficos.cartesiano.Vectorial.FigurasCartesianasVectores;
+import graficos.cartesiano.vectorial.FigurasCartesianasVectores;
 
 import graficos.cartesiano.MapaCartesiano;
 

@@ -3,7 +3,7 @@ Alumno: Pedro Nicolas Rios Vargas
 Actividad: Practica 10
 Fecha: 30/Octubre/2020
  */
-package graficos.cartesiano.Vectorial;
+package graficos.cartesiano.vectorial;
 
 import java.awt.*;
 
@@ -921,20 +921,5 @@ public class FigurasCartesianasVectores extends CartesianoVectores {
         int[] resY = actualizaPuntos(res,1);
 
         rellenarPoligonoEscalar(resX,resY,relleno,borde,g);
-    }
-
-    @Override
-    public int[][] transladar(int[] x, int[] y, int tX, int tY) {
-        return super.transladar(x, y, tX, tY);
-    }
-
-    @Override
-    public int[][] escalar(int[] x, int[] y, float sX, float sY) {
-        return super.escalar(x, y, sX, sY);
-    }
-
-    @Override
-    public int[][] rotar(int[] x, int[] y, int grados) {
-        return super.rotar(x, y, grados);
     }
 }

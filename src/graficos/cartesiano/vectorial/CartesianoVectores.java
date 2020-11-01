@@ -3,7 +3,7 @@ Alumno: Pedro Nicolas Rios Vargas
 Actividad: Practica 10
 Fecha: 30/Octubre/2020
  */
-package graficos.cartesiano.Vectorial;
+package graficos.cartesiano.vectorial;
 
 import graficos.cartesiano.MapaCartesiano;
 
@@ -15,7 +15,7 @@ import graficos.cartesiano.MapaCartesiano;
  */
 public class CartesianoVectores extends MapaCartesiano {
 
-    public void imprimirMatriz(double[][] matriz){
+    public static void imprimirMatriz(double[][] matriz){
         System.out.println("\n[");
         for(int i = 0; i < matriz.length;i++){
             System.out.print("{");
@@ -35,7 +35,7 @@ public class CartesianoVectores extends MapaCartesiano {
         }
     }
 
-    public void imprimirMatriz(int[][] matriz){
+    public static void imprimirMatriz(int[][] matriz){
         System.out.println("\n[");
         for(int i = 0; i < matriz.length;i++){
             System.out.print("{");
@@ -55,7 +55,7 @@ public class CartesianoVectores extends MapaCartesiano {
         }
     }
 
-    public void imprimirArreglo(int[] a){
+    public static void imprimirArreglo(int[] a){
         System.out.print("{\t");
         for(int i = 0; i < a.length;i++){
             System.out.print(a[i]);
@@ -144,11 +144,11 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param g Grados a convertir.
      * @return  Radianes.
      */
-    public double radianes(double g) {
+    public static double radianes(double g) {
         return g * (Math.PI/180);
     }
 
-    public double[][] matrizPuntos(int[] x, int[] y){
+    public static double[][] matrizPuntos(int[] x, int[] y){
         int[] x1 = x.clone();
         int[] y1 = y.clone();
 
@@ -198,10 +198,10 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param dy    Traslacion en y.
      * @return  Matriz de traslacion.
      */
-    public double[][] t(double dx, double dy) {
+    public static double[][] t(double dx, double dy) {
         return new double[][]{
-                {1,0,  dx},
-                {0,1,  dy},
+                {1,0, dx},
+                {0,1, dy},
                 {0,0,  1}
         };
     }
@@ -212,7 +212,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param dy    Traslacion en y.
      * @return  Matriz de traslacion inversa.
      */
-    public double[][] tInv(double dx, double dy) {
+    public static double[][] tInv(double dx, double dy) {
         return new double[][]{
                 {1,0,-dx},
                 {0,1,-dy},
@@ -226,7 +226,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param sy    Escalacion en y.
      * @return  Matriz de escalacion.
      */
-    public double[][] s(double sx, double sy) {
+    public static double[][] s(double sx, double sy) {
         return new double[][]{
                 {sx, 0,0},
                 { 0,sy,0},
@@ -242,7 +242,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param sy    Escalacion en y.
      * @return  Matriz de escalacion en un punto fijo.
      */
-    public double[][] s(double xf, double yf, double sx, double sy) {
+    public static double[][] s(double xf, double yf, double sx, double sy) {
         return new double[][]{
                 {sx, 0,   xf*(1-sx)},  //xf*(1-sx)
                 { 0,sy,(-yf)*(1-sy)},  //yf*(1-sy)
@@ -256,7 +256,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param sy    Escalacion en y.
      * @return  Matriz de escalacion inversa.
      */
-    public double[][] sInv(double sx, double sy) {
+    public static double[][] sInv(double sx, double sy) {
         return new double[][]{
                 {1/sx,   0,   0},
                 {   0,1/sy,   0},
@@ -269,7 +269,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param g Grados a rotar.
      * @return  Matriz de rotacion.
      */
-    public double[][] r(double g) {
+    public static double[][] r(double g) {
         double rad = radianes(g);
         return new double[][]{
                 {Math.cos(rad),-Math.sin(rad), 0},
@@ -285,12 +285,12 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param g Grados a rotar.
      * @return  Matriz de rotacion basada en un punto de rotacion
      */
-    public double[][] r(double xp, double yp, double g) {
+    public static double[][] r(double xp, double yp, double g) {
         double rad = radianes(g);
         //recordatorio: las variables yp se hicieron negativas
         return new double[][]{
                 {Math.cos(rad), Math.sin(rad), xp * (1-Math.cos(rad)) + yp * Math.sin(rad)},
-                {Math.sin(rad),-Math.cos(rad), yp * (1-Math.cos(rad)) - xp * Math.sin(rad)},
+                {Math.sin(rad),-Math.cos(rad), (yp) * (1-Math.cos(rad)) - xp * Math.sin(rad)},
                 {            0,             0,                                           1}
         };
     }
@@ -300,7 +300,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param g Grados a rotar.
      * @return  Matriz de rotacion inversa.
      */
-    public double[][] rInv(double g) {
+    public static double[][] rInv(double g) {
         double rad = radianes(g);
         return new double[][]{
                 { Math.cos(rad),Math.sin(rad),0},
@@ -317,7 +317,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * @return  regresa un arreglo con las coordenadas bien sea de x o de y segun sea el caso, y el
      *          cual se utilizara para dibujar el objeto grafico.
      */
-    public int[] actualizaPuntos(double[][] puntos, int coord) {
+    public static int[] actualizaPuntos(double[][] puntos, int coord) {
         int[] res = new int[puntos[coord].length];
         for(int i = 0; i < puntos[coord].length;i++){
             res[i] = (int) Math.round(puntos[coord][i]);
@@ -330,7 +330,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * Metodo que regresa la matriz de reflexion de un objeto con respecto al eje de las x.
      * @return  Retorna la matriz de reflexion con respecto al eje de las x.
      */
-    public double[][] refX() {
+    public static double[][] refX() {
         return new double[][]{
                 {1, 0,0},
                 {0, 1,0},
@@ -342,7 +342,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * Metodo que regresa la matriz de reflexion de un objeto con respecto al eje de las y.
      * @return  Retorna la matriz de reflexion con respecto al eje de las y.
      */
-    public double[][] refY() {
+    public static double[][] refY() {
         return new double[][]{
                 {-1, 0,0},
                 { 0,-1,0},
@@ -355,7 +355,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * al plano xy y que pasa a traves del origen de las coordenadas.
      * @return  Regresa la matriz de reflexion con respecto un eje perpendicular al plano xy.
      */
-    public double[][] refOrigen() {
+    public static double[][] refOrigen() {
         return new double[][]{
                 {-1, 0,0},
                 { 0, 1,0},
@@ -367,7 +367,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * Metodo que regresa la matriz de reflexion de un objeto con respecto de la linea y = x.
      * @return  Regresa la matriz de reflexion con respecto a la linea y = x.
      */
-    public double[][] refYigualX() {
+    public static double[][] refYigualX() {
         return new double[][]{
                 {0,-1,0},
                 {1, 0,0},
@@ -379,7 +379,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * Metodo que regresa la matriz de reflexion de un objeto con respecto de la linea y = -x.
      * @return  Regresa la matriz de reflexion con respecto de la linea y = -x.
      */
-    public double[][] refYigualMenosX() {
+    public static double[][] refYigualMenosX() {
         return new double[][]{
                 { 0, 1,0},
                 {-1, 0,0},
@@ -394,7 +394,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param shX   Punto de recorte en x.
      * @return  Regresa la matriz de recorte en direccion del punto shX.
      */
-    public double[][] cX(double shX) {
+    public static double[][] cX(double shX) {
         return new double[][]{
                 {1,-shX,0},
                 {0, -1 ,0},
@@ -409,7 +409,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param shX   Punto de recorte en x.
      * @return  Regresa la matriz de recorte de la direccion de x en relacion con un punto en la linea y.
      */
-    public double[][] cXLinea(int yRef, double shX) {
+    public static double[][] cXLinea(int yRef, double shX) {
         return new double[][]{
                 {1,-shX,-shX*yRef},
                 {0, -1 ,    0    },
@@ -423,7 +423,7 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param shY   Punto de recorte en y.
      * @return  Regresa la matriz de recorte de la direccion de x en relacion con el eje y.
      */
-    public double[][] cY(double shY) {
+    public static double[][] cY(double shY) {
         return new double[][]{
                 { 1 ,0,0},
                 {shY,-1,0},
@@ -438,11 +438,248 @@ public class CartesianoVectores extends MapaCartesiano {
      * @param shY   Punto de recorte en y.
      * @return  Regresa la matriz de recorte de la direccion de y en relacion con un punto en la linea x.
      */
-    public double[][] cYLinea(int xRef, double shY) {
+    public static double[][] cYLinea(int xRef, double shY) {
         return new double[][]{
                 {  1 , 0,     0  },
                 { shY,-1,-shY*xRef},
                 {  0 , 0,    1   }
         };
     }
+
+    @Override
+    public int[][] transladar(int[] x, int[] y, int tX, int tY) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] t = t(tX,-tY);
+        double[][] traslacion = multiplicacion(t,matrizPts);
+
+        int[] resX = actualizaPuntos(traslacion,0);
+        int[] resY = actualizaPuntos(traslacion,1);
+
+        return ajusteMatriz(resX,resY);
+    }
+
+    @Override
+    public int[][] transladarInv(int[] x, int[] y, int tX, int tY) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] t = tInv(tX,-tY);
+        double[][] traslacion = multiplicacion(t,matrizPts);
+
+        int[] resX = actualizaPuntos(traslacion,0);
+        int[] resY = actualizaPuntos(traslacion,1);
+
+        return ajusteMatriz(resX,resY);
+    }
+
+    @Override
+    public int[][] escalar(int[] x, int[] y, float sX, float sY) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] s = s(sX,sY);
+        double[][] primeraEscalacion = multiplicacion(s,matrizPts);
+
+        int[] resX = actualizaPuntos(primeraEscalacion,0);
+        int[] resY = actualizaPuntos(primeraEscalacion,1);
+
+        return ajusteMatriz(resX,resY);
+    }
+
+    @Override
+    public int[][] escalarPuntoFijo(int[] x, int[] y, double tX, double tY, double sX, double sY) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] s = s(tX,tY,sX,sY);
+        double[][] resCoord = multiplicacion(s,matrizPts);
+
+        int[] resX = actualizaPuntos(resCoord,0);
+        int[] resY = actualizaPuntos(resCoord,1);
+
+        return new int[][] {
+                resX,
+                resY
+        };
+    }
+
+    @Override
+    public int[][] escalarInv(int[] x, int[] y, double sX, double sY) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] s = sInv(sX,sY);
+        double[][] primeraEscalacion = multiplicacion(s,matrizPts);
+
+        int[] resX = actualizaPuntos(primeraEscalacion,0);
+        int[] resY = actualizaPuntos(primeraEscalacion,1);
+
+        return ajusteMatriz(resX,resY);
+    }
+
+    @Override
+    public int[][] rotar(int[] x, int[] y, double grados) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] matrizRot = r(grados);
+        double[][] rotacion = multiplicacion(matrizRot,matrizPts);
+
+        int[] resX = actualizaPuntos(rotacion,0);
+        int[] resY = actualizaPuntos(rotacion,1);
+
+        return ajusteMatriz(resX,resY);
+
+    }
+
+    @Override
+    public int[][] rotarPuntoFijo(int[] x, int[] y, double tX, double tY, double grados) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] mtzTrans = r(tX,-tY,grados);
+
+        double[][] rotacion = multiplicacion(mtzTrans,matrizPts);
+
+        int[] resX = actualizaPuntos(rotacion,0);
+        int[] resY = actualizaPuntos(rotacion,1);
+
+        return ajusteMatriz(resX,resY);
+    }
+
+    @Override
+    public int[][] rotarInv(int[] x, int[] y, double grados) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] matrizRot = rInv(grados);
+        double[][] rotacion = multiplicacion(matrizRot,matrizPts);
+
+        int[] resX = actualizaPuntos(rotacion,0);
+        int[] resY = actualizaPuntos(rotacion,1);
+
+        return ajusteMatriz(resX,resY);
+    }
+
+    @Override
+    public int[][] reflejoX(int[] x, int[] y) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(refX(),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        return new int[][]{
+                resX,
+                resY
+        };
+    }
+
+    @Override
+    public int[][] reflejoY(int[] x, int[] y) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(refY(),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        return new int[][]{
+                resX,
+                resY
+        };
+    }
+
+    @Override
+    public int[][] reflejoOrigen(int[] x, int[] y) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(refOrigen(),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        return new int[][]{
+                resX,
+                resY
+        };
+    }
+
+    @Override
+    public int[][] reflejoYigualX(int[] x, int[] y) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(refYigualX(),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        return new int[][]{
+                resX,
+                resY
+        };
+    }
+
+    @Override
+    public int[][] reflejoYigualMenosX(int[] x, int[] y) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(refYigualMenosX(),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        return new int[][] {
+                resX,
+                resY
+        };
+    }
+
+    @Override
+    public int[][] recorteDeXsobreX(int[] x, int[] y, float shX) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(cX(shX),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        return ajusteMatriz(resX,resY);
+    }
+
+    @Override
+    public int[][] recorteDeXsobreY(int[] x, int[] y, float shX, int refY) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(cXLinea(refY,shX),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        return new int[][] {
+                resX,
+                resY
+        };
+    }
+
+    @Override
+    public int[][] recorteDeYsobreY(int[] x, int[] y, float shY) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(cY(shY),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        return ajusteMatriz(resX,resY);
+    }
+
+    @Override
+    public int[][] recorteDeYsobreX(int[] x, int[] y, float shY, int refX) {
+        double[][] matrizPts = matrizPuntos(x,y);
+        double[][] res = multiplicacion(cYLinea(refX,shY),matrizPts);
+
+        int[] resX = actualizaPuntos(res,0);
+        int[] resY = actualizaPuntos(res,1);
+
+        return ajusteMatriz(resX,resY);
+    }
+
+    /**
+     * Metodo que permite corregir las coordenadas de "x" y "y" cuando estas cambian por un
+     * el uso de uno de los metodos de este bloque.
+     * @param x Conjunto de coordenadas x.
+     * @param y Conjunto de coordenadas y.
+     * @return  Retorna una matriz de n x 2 renglones donde n es el numero de columnas.
+     */
+    public static int[][] ajusteMatriz(int[] x, int[] y){
+        double[][] matrizPts = matrizPuntos(x,y);
+        int[] resX = actualizaPuntos(matrizPts,0);
+        int[] resY = actualizaPuntos(matrizPts,1);
+
+        return new int[][]{
+                resX,
+                resY
+        };
+    }
+
 }
