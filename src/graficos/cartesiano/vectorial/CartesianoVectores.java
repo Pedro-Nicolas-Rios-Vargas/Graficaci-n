@@ -66,6 +66,20 @@ public class CartesianoVectores extends MapaCartesiano {
             }
         }
     }
+
+    /**
+     * Metodo que invierte los valores de un arreglo. Si son positivos se vuelven negativos y viceversa.
+     * @param y Arreglo a invertir.
+     * @return  Arreglo invertido (y').
+     */
+    public static int[] invertirArreglo(int[] y) {
+        int[] res = new int[y.length];
+
+        for(int i = 0; i < y.length;i++){
+            res[i] -= y[i];
+        }
+        return res;
+    }
     /**
      * Se encarga de ajustar las coordenadas contenidas en los arreglos x[] e y[]
      * para dibujar lineas a escala de un plano cartesiano.
@@ -77,7 +91,7 @@ public class CartesianoVectores extends MapaCartesiano {
      */
     protected int[][] ajusteArreglos(int[] x, int[] y) {
         int[] x1 = x.clone();
-        int[] y1 = y.clone();
+        int[] y1 = invertirArreglo(y);
 
         double[][] t = t(zeroAxisX,zeroAxisY);
         double[][] s = s(10,10);
@@ -104,7 +118,7 @@ public class CartesianoVectores extends MapaCartesiano {
      */
     protected int[][] ajusteArreglosEscalares(int[] x, int[] y) {
         int[] x1 = x.clone();
-        int[] y1 = y.clone();
+        int[] y1 = invertirArreglo(y);
 
         double[][] t = t(zeroAxisX,zeroAxisY);
         double[][] s = s(escalarX,escalarY);
@@ -124,17 +138,23 @@ public class CartesianoVectores extends MapaCartesiano {
     }
 
     protected double[][] ajusteArreglosEscalares(double[][] matrizPts) {
+        int[] resX = actualizaPuntos(matrizPts,0);
+        int[] resY = actualizaPuntos(matrizPts,1);
+        resY = invertirArreglo(resY);
+
+        double[][] matrizPtsRes = matrizPuntos(resX,resY);
+
         double[][] t = t(zeroAxisX,zeroAxisY);
         double[][] s = s(escalarX,escalarY);
         double[][] mult = multiplicacion(t,s);
 
-        double[][] res = multiplicacion(mult,matrizPts);
+        double[][] res = multiplicacion(mult,matrizPtsRes);
+
         /*
-        int[] resX = actualizaPuntos(res,0);
-        int[] resY = actualizaPuntos(res,1);
+        resX = actualizaPuntos(res,0);
+        resY = actualizaPuntos(res,1);
 
-
-        return new int[][]{resX,resY};
+        return matrizPuntos(resX,resY);
         */
         return res;
     }
@@ -156,7 +176,7 @@ public class CartesianoVectores extends MapaCartesiano {
 
         for(int i = 0; i < x.length;i++) {
             mtz[0][i] = x1[i];
-            mtz[1][i] -= y1[i];
+            mtz[1][i] = y1[i];
             mtz[2][i] = 1;
         }
         return mtz;
@@ -244,9 +264,9 @@ public class CartesianoVectores extends MapaCartesiano {
      */
     public static double[][] s(double xf, double yf, double sx, double sy) {
         return new double[][]{
-                {sx, 0,   xf*(1-sx)},  //xf*(1-sx)
-                { 0,sy,(-yf)*(1-sy)},  //yf*(1-sy)
-                { 0, 0,           1}
+                {sx, 0,xf*(1-sx)},  //xf*(1-sx)
+                { 0,sy,yf*(1-sy)},  //yf*(1-sy)
+                { 0, 0,        1}
         };
     }
 
@@ -289,9 +309,9 @@ public class CartesianoVectores extends MapaCartesiano {
         double rad = radianes(g);
         //recordatorio: las variables yp se hicieron negativas
         return new double[][]{
-                {Math.cos(rad), Math.sin(rad), xp * (1-Math.cos(rad)) + yp * Math.sin(rad)},
-                {Math.sin(rad),-Math.cos(rad), (yp) * (1-Math.cos(rad)) - xp * Math.sin(rad)},
-                {            0,             0,                                           1}
+                {Math.cos(rad),-Math.sin(rad),xp * (1-Math.cos(rad)) + yp * Math.sin(rad)},
+                {Math.sin(rad), Math.cos(rad),yp * (1-Math.cos(rad)) - xp * Math.sin(rad)},
+                {            0,             0,                                          1}
         };
     }
 
@@ -320,7 +340,7 @@ public class CartesianoVectores extends MapaCartesiano {
     public static int[] actualizaPuntos(double[][] puntos, int coord) {
         int[] res = new int[puntos[coord].length];
         for(int i = 0; i < puntos[coord].length;i++){
-            res[i] = (int) Math.round(puntos[coord][i]);
+                res[i] = (int) Math.round(puntos[coord][i]);
         }
         return res;
     }
@@ -333,7 +353,7 @@ public class CartesianoVectores extends MapaCartesiano {
     public static double[][] refX() {
         return new double[][]{
                 {1, 0,0},
-                {0, 1,0},
+                {0,-1,0},
                 {0, 0,1}
         };
     }
@@ -344,9 +364,9 @@ public class CartesianoVectores extends MapaCartesiano {
      */
     public static double[][] refY() {
         return new double[][]{
-                {-1, 0,0},
-                { 0,-1,0},
-                { 0, 0,1}
+                {-1,0,0},
+                { 0,1,0},
+                { 0,0,1}
         };
     }
 
@@ -358,7 +378,7 @@ public class CartesianoVectores extends MapaCartesiano {
     public static double[][] refOrigen() {
         return new double[][]{
                 {-1, 0,0},
-                { 0, 1,0},
+                { 0,-1,0},
                 { 0, 0,1}
         };
     }
@@ -369,9 +389,9 @@ public class CartesianoVectores extends MapaCartesiano {
      */
     public static double[][] refYigualX() {
         return new double[][]{
-                {0,-1,0},
-                {1, 0,0},
-                {0, 0,1}
+                {0,1,0},
+                {1,0,0},
+                {0,0,1}
         };
     }
 
@@ -381,7 +401,7 @@ public class CartesianoVectores extends MapaCartesiano {
      */
     public static double[][] refYigualMenosX() {
         return new double[][]{
-                { 0, 1,0},
+                { 0,-1,0},
                 {-1, 0,0},
                 { 0, 0,1}
         };
@@ -396,8 +416,8 @@ public class CartesianoVectores extends MapaCartesiano {
      */
     public static double[][] cX(double shX) {
         return new double[][]{
-                {1,-shX,0},
-                {0, -1 ,0},
+                {1,shX,0},
+                {0, 1 ,0},
                 {0, 0 ,1}
         };
     }
@@ -411,8 +431,8 @@ public class CartesianoVectores extends MapaCartesiano {
      */
     public static double[][] cXLinea(int yRef, double shX) {
         return new double[][]{
-                {1,-shX,-shX*yRef},
-                {0, -1 ,    0    },
+                {1,shX,-shX*yRef},
+                {0, 1 ,    0    },
                 {0, 0 ,    1    }
         };
     }
@@ -426,7 +446,7 @@ public class CartesianoVectores extends MapaCartesiano {
     public static double[][] cY(double shY) {
         return new double[][]{
                 { 1 ,0,0},
-                {shY,-1,0},
+                {shY,1,0},
                 { 0 ,0,1}
         };
     }
@@ -440,9 +460,9 @@ public class CartesianoVectores extends MapaCartesiano {
      */
     public static double[][] cYLinea(int xRef, double shY) {
         return new double[][]{
-                {  1 , 0,     0  },
-                { shY,-1,-shY*xRef},
-                {  0 , 0,    1   }
+                { 1 ,0,    0    },
+                {shY,1,-shY*xRef},
+                { 0 ,0,    1    }
         };
     }
 
